@@ -24,7 +24,7 @@ fi
 # if the cert is missing (zero-size) or olther then a month
 if [ ! -s "{{ acme__tiny__certificate }}" ] || [ "{{ acme__tiny__certificate }}" -ot "/tmp/letsencrypt.tmp" ] ; then
     # ask for a newly signed cert
-    $_acme_tiny --account-key {{ acme__tiny__account_key }} --csr {{ acme__tiny__request }} --acme-dir {{ acme__tiny__challenge_dir }} > {{ acme__tiny__certificate }} || exit
+    $_acme_tiny --account-key {{ acme__tiny__account_key }} --csr {{ acme__tiny__request }} --acme-dir {{ acme__tiny__challenge_dir }} > {{ acme__tiny__certificate }} || exit 1
 
     # install the cert as consumable for the respective services
     /bin/cp "{{ acme__tiny__certificate }}" "{{ acme__tiny__cert_dir }}/{{ acme__tiny__cert_name }}.crt"

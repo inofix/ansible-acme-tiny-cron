@@ -11,6 +11,8 @@ acme__tiny__cron_bin_dir: '{{ app__acme__tiny__cron_bin_dir |
                             d(default__acme__tiny__cron_bin_dir) }}'
 acme__tiny__challenge_dir: '{{ app__acme__tiny__challenge_dir |
                             d(default__acme__tiny__challenge_dir) }}'
+acme__tiny__log_dir: '{{ app__acme__tiny__log_dir |
+                            d(default__acme__tiny__log_dir) }}'
 acme__tiny__domain: '{{ app__acme__tiny__domain |
                             d(default__acme__tiny__domain) }}'
 

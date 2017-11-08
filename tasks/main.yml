@@ -1,6 +1,11 @@
 ---
 # tasks file for acme-tiny-cron
 
+- name: 'Prepare a directory for storing the renewal scripts.'
+  file:
+    path: '{{ acme__tiny__cron_bin_dir }}'
+    state: 'directory'
+
 - name: 'Install a certificate renewer script for {{ acme__tiny__cert_name }}'
   template:
     src: 'acme-renew_cert.j2'
