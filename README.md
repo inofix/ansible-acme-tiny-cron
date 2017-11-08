@@ -1,4 +1,4 @@
-[![Travis CI](https://img.shields.io/travis/inofix/ansible-acme-tiny-install.svg?style=flat)](http://travis-ci.org/inofix/ansible-acme-tiny-install)
+[![Travis CI](https://img.shields.io/travis/inofix/ansible-acme-tiny-cron-sign.svg?style=flat)](http://travis-ci.org/inofix/ansible-acme-tiny-cron-sign)
 
 
 Role Name
