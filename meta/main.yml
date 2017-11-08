@@ -1,0 +1,21 @@
+galaxy_info:
+  author: Michael Lustenberger
+  description: Install cronjob to sign certs with the famous acme-tiny python script
+  company: INOFIX GmbH
+  # issue_tracker_url: http://example.com/issue/tracker
+  license: license (GPLv3)
+  min_ansible_version: 2.0.0
+  #github_branch:
+  platforms:
+  - name: Debian
+    versions:
+    - all
+
+  galaxy_tags:
+    - acme:acme-tiny:acmetiny
+    - cert:certs:certificate:certificates
+    - cron
+    - letsencrypt
+    - ssl:tls
+    - system
+
