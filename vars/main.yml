@@ -1,0 +1,36 @@
+---
+# vars file for acme-tiny-cron-sign
+
+acme__tiny__user: '{{ app__acme__tiny__user |
+                            d(default__acme__tiny__user) }}'
+acme__tiny__config_dir: '{{ app__acme__tiny__config_dir |
+                            d(default__acme__tiny__config_dir) }}'
+acme__tiny__account_key: '{{ app__acme__tiny__account_key |
+                            d(default__acme__tiny__account_key) }}'
+acme__tiny__cron_bin_dir: '{{ app__acme__tiny__cron_bin_dir |
+                            d(default__acme__tiny__cron_bin_dir) }}'
+acme__tiny__challenge_dir: '{{ app__acme__tiny__challenge_dir |
+                            d(default__acme__tiny__challenge_dir) }}'
+acme__tiny__domain: '{{ app__acme__tiny__domain |
+                            d(default__acme__tiny__domain) }}'
+
+acme__tiny__cert_name: '{{ acme__tiny__domain[0]
+                            if (acme__tiny__domain is iterable and
+                            not acme__tiny__domain is string)
+                            else acme__tiny__domain }}'
+acme__tiny__cert_path: '{{ acme__tiny__config_dir }}/{{ acme__tiny__cert_name }}'
+acme__tiny__cert_dir: '{{ acme__tiny__cert_path }}'
+acme__tiny__request: '{{ acme__tiny__cert_path }}.csr'
+acme__tiny__certificate: '{{ acme__tiny__cert_path }}.crt'
+
+acme__tiny__cron_minute: '{{ app__acme__tiny__cron_minute |
+                            d(default__acme__tiny__cron_minute) }}'
+acme__tiny__cron_hour: '{{ app__acme__tiny__cron_hour |
+                            d(default__acme__tiny__cron_hour) }}'
+acme__tiny__cron_day: '{{ app__acme__tiny__cron_day |
+                            d(default__acme__tiny__cron_day) }}'
+acme__tiny__cron_month: '{{ app__acme__tiny__cron_month |
+                            d(default__acme__tiny__cron_month) }}'
+acme__tiny__cron_weekday: '{{ app__acme__tiny__cron_weekday |
+                            d(default__acme__tiny__cron_weekday) }}'
+
