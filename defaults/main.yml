@@ -8,6 +8,7 @@ default__acme__tiny__account_key: '{{ default__acme__tiny__config_dir }}/account
 default__acme__tiny__cron_bin_dir: '{{ default__acme__tiny__config_dir }}/bin'
 
 default__acme__tiny__challenge_dir: '/var/www/acme-challenge'
+default__acme__tiny__log_dir: '/var/log/acme-tiny'
 
 default__acme__tiny__domain: 'example.com'
 
