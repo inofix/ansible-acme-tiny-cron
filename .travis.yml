@@ -24,7 +24,7 @@ install:
   # Install missing dependencies
   - ansible-galaxy install inofix.acme-tiny-install
   - ansible-galaxy install inofix.acme-tiny-setup
-  - ansible-galaxy install inofix.acme-tiny
+  - ansible-galaxy install inofix.acme-tiny-sign
 
 script:
   # Basic role syntax check
