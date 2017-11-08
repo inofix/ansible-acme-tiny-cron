@@ -34,3 +34,5 @@ acme__tiny__cron_month: '{{ app__acme__tiny__cron_month |
 acme__tiny__cron_weekday: '{{ app__acme__tiny__cron_weekday |
                             d(default__acme__tiny__cron_weekday) }}'
 
+acme__tiny__letsencrypt_certs: '{{ app__acme__tiny__letsencrypt_certs |
+                            d(default__acme__tiny__letsencrypt_certs) }}'

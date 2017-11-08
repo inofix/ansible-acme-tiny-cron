@@ -19,3 +19,9 @@ default__acme__tiny__cron_day: '*'
 default__acme__tiny__cron_month: '*'
 default__acme__tiny__cron_weekday: '*'
 
+default__acme__tiny__letsencrypt_certs:
+  - url: 'https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem'
+    file: 'intermediate.crt'
+  - url: 'https://letsencrypt.org/certs/isrgrootx1.pem'
+    file: 'ca.crt'
+
