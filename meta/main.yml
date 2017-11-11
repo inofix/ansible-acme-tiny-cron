@@ -19,3 +19,6 @@ galaxy_info:
     - ssl:tls
     - system
 
+dependencies:
+  - inofix.acme-setup
+
