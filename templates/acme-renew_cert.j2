@@ -15,19 +15,19 @@ fi
 
 # make sure we collect the intermediate/ca certs only once for all the different certs
 touch -d "last month" /tmp/letsencrypt.tmp
-{% for item in acme__tiny__letsencrypt_certs %}
-if [ "{{ acme__tiny__config_dir }}/{{ item.file }}" -ot "/tmp/letsencrypt.tmp" ] ; then
-    wget -O - {{ item.url }} > "{{ acme__tiny__config_dir }}/{{ item.file }}"
+{% for item in acme__letsencrypt_certs %}
+if [ "{{ acme__config_dir }}/{{ item.file }}" -ot "/tmp/letsencrypt.tmp" ] ; then
+    wget -O - {{ item.url }} > "{{ acme__config_dir }}/{{ item.file }}"
 fi
 {% endfor %}
 
 # if the cert is missing (zero-size) or olther then a month
-if [ ! -s "{{ acme__tiny__certificate }}" ] || [ "{{ acme__tiny__certificate }}" -ot "/tmp/letsencrypt.tmp" ] ; then
+if [ ! -s "{{ acme__certificate }}" ] || [ "{{ acme__certificate }}" -ot "/tmp/letsencrypt.tmp" ] ; then
     # ask for a newly signed cert
-    $_acme_tiny --account-key {{ acme__tiny__account_key }} --csr {{ acme__tiny__request }} --acme-dir {{ acme__tiny__challenge_dir }} > {{ acme__tiny__certificate }} || exit 1
+    $_acme_tiny --account-key {{ acme__account_key }} --csr {{ acme__request }} --acme-dir {{ acme__challenge_dir }} > {{ acme__certificate }} || exit 1
 
     # install the cert as consumable for the respective services
-    /bin/cp "{{ acme__tiny__certificate }}" "{{ acme__tiny__cert_dir }}/{{ acme__tiny__cert_name }}.crt"
-    /bin/cat "{{ acme__tiny__certificate }}" {% for item in acme__tiny__letsencrypt_certs %}"{{ acme__tiny__config_dir }}/{{ item.file }}" {% endfor %} > "{{ acme__tiny__cert_dir }}/{{ acme__tiny__cert_name }}_chain.crt"
+    /bin/cp "{{ acme__certificate }}" "{{ acme__cert_dir }}/{{ acme__cert_name }}.crt"
+    /bin/cat "{{ acme__certificate }}" {% for item in acme__letsencrypt_certs %}"{{ acme__config_dir }}/{{ item.file }}" {% endfor %} > "{{ acme__cert_dir }}/{{ acme__cert_name }}_chain.crt"
 fi
 
