@@ -8,7 +8,7 @@ default__acme__account_key: '{{ default__acme__config_dir }}/account.key'
 default__acme__scripts_dir: '{{ default__acme__config_dir }}/scripts'
 
 default__acme__challenge_dir: '/var/www/acme-challenge'
-default__acme__tiny__log_dir: '/var/log/acme-tiny'
+default__acme__tiny__log_dir: '/var/log/acme'
 
 default__acme__domain: 'example.com'
 
