@@ -8,7 +8,7 @@
 
 - name: 'Install a certificate renewer script for {{ acme__cert_name }}'
   template:
-    src: 'acme-renew_cert.j2'
+    src: 'acme-renew_cert.sh.j2'
     dest: '{{ acme__scripts_dir }}/acme-renew_{{ acme__cert_name }}.sh'
     owner: 'root'
     group: 'root'
