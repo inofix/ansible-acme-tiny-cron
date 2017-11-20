@@ -1,14 +1,12 @@
 #!/bin/sh
 
-/bin/date +'====== %Y-%m-%d %H:%M:%S ======' 1>&2
+# only expect tools in this location..
+export PATH="/bin:/usr/bin:/usr/local/bin/"
 
-if [ -x "/bin/acme-tiny" ] ; then
-    _acme_tiny=/bin/acme-tiny
-elif [ -x "/usr/bin/acme-tiny" ] ; then
-    _acme_tiny=/usr/bin/acme-tiny
-elif [ -x "/usr/local/bin/acme-tiny" ] ; then
-    _acme_tiny=/usr/local/bin/acme-tiny
-else
+date +'====== %Y-%m-%d %H:%M:%S ======' 1>&2
+
+if ! which acme-tiny ; then
+
     echo "acme-tiny seems to be missing, please install it first."
     exit 1
 fi
@@ -24,10 +22,10 @@ fi
 # if the cert is missing (zero-size) or olther then a month
 if [ ! -s "{{ acme__certificate }}" ] || [ "{{ acme__certificate }}" -ot "/tmp/letsencrypt.tmp" ] ; then
     # ask for a newly signed cert
-    $_acme_tiny --account-key {{ acme__account_key }} --csr {{ acme__request }} --acme-dir {{ acme__challenge_dir }} > {{ acme__certificate }} || exit 1
+    acme_tiny --account-key {{ acme__account_key }} --csr {{ acme__request }} --acme-dir {{ acme__challenge_dir }} > {{ acme__certificate }} || exit 1
 
     # install the cert as consumable for the respective services
-    /bin/cp "{{ acme__certificate }}" "{{ acme__cert_dir }}/{{ acme__cert_name }}.crt"
-    /bin/cat "{{ acme__certificate }}" {% for item in acme__letsencrypt_certs %}"{{ acme__config_dir }}/{{ item.file }}" {% endfor %} > "{{ acme__cert_dir }}/{{ acme__cert_name }}_chain.crt"
+    cp "{{ acme__certificate }}" "{{ acme__cert_dir }}/{{ acme__cert_name }}.crt"
+    cat "{{ acme__certificate }}" {% for item in acme__letsencrypt_certs %}"{{ acme__config_dir }}/{{ item.file }}" {% endfor %} > "{{ acme__cert_dir }}/{{ acme__cert_name }}_chain.crt"
 fi
 
