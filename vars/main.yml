@@ -1,5 +1,5 @@
 ---
-# vars file for acme-tiny-cron-sign
+# vars file for acme-tiny-sign-cron
 
 acme__user: '{{ app__acme__user |
                             d(default__acme__user) }}'
