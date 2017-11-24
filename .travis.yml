@@ -22,8 +22,8 @@ install:
   - printf '[defaults]\nroles_path=../' >ansible.cfg
 
   # Install missing dependencies
+  - ansible-galaxy install inofix.acme-setup
   - ansible-galaxy install inofix.acme-tiny-install
-  - ansible-galaxy install inofix.acme-tiny-setup
   - ansible-galaxy install inofix.acme-tiny-sign
 
 script:
