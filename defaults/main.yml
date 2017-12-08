@@ -10,7 +10,8 @@ default__acme__scripts_dir: '{{ default__acme__config_dir }}/scripts'
 default__acme__challenge_dir: '/var/www/acme-challenge'
 default__acme__tiny__log_dir: '/var/log/acme'
 
-default__acme__domain: 'example.com'
+default__acme__domain:
+  domain: 'example.com'
 
 # per default start the script every night at 4:22, the script then tests if
 # the current certificate is old or broken and does not download unneeded stuff

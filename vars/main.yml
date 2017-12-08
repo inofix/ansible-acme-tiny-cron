@@ -13,17 +13,8 @@ acme__challenge_dir: '{{ app__acme__challenge_dir |
                             d(default__acme__challenge_dir) }}'
 acme__log_dir: '{{ app__acme__tiny__log_dir | d(app__acme__log_dir) |
                             d(default__acme__tiny__log_dir) }}'
-acme__domain: '{{ app__acme__domain |
-                            d(default__acme__domain) }}'
-
-acme__cert_name: '{{ acme__domain[0]
-                            if (acme__domain is iterable and
-                            not acme__domain is string)
-                            else acme__domain }}'
-acme__cert_path: '{{ acme__config_dir }}/{{ acme__cert_name }}'
-acme__cert_dir: '{{ acme__cert_path }}'
-acme__request: '{{ acme__cert_path }}.csr'
-acme__certificate: '{{ acme__cert_path }}.crt'
+acme__cs: '{{ app__acme__domain | selectattr("request") | list() }}'
+acme__domain: '{{ acme__cs | d(default__acme__domain) }}'
 
 acme__tiny__cron_minute: '{{ app__acme__tiny__cron_minute |
                             d(default__acme__tiny__cron_minute) }}'
