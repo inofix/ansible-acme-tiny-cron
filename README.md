@@ -56,6 +56,7 @@ Role Variables
 * app\_\_acme\_\_tiny\_\_cron\_day - optional, default='\*'
 * app\_\_acme\_\_tiny\_\_cron\_month - optional, default='\*'
 * app\_\_acme\_\_tiny\_\_cron\_weekday - optional, default='\*'
+* fqdn - optional, default={{ ansible\_fqdn | d(inventory\_hostname ) }}
 
 Dependencies
 ------------

@@ -13,6 +13,17 @@
     owner: 'root'
     group: 'root'
     mode: '0755'
+  vars:
+    acme__cert_name: '{{ item.domain[0]
+                        if (item.domain is iterable and
+                                not item.domain is string)
+                        else item.domain }}'
+    acme__cert_path: '{{ acme__config_dir }}/{{ acme__cert_name }}'
+    acme__request: '{{ acme__cert_path }}.csr'
+    acme__certificate: '{{ acme__cert_path }}.crt'
+    acme__target_cert: '{{ acme__cert_path }}/{{ acme__cert_name }}.crt'
+    acme__target_chain: '{{ acme__cert_path }}/{{ acme__cert_name }}_chain.crt'
+  with_items: '{{ acme__domain }}'
 
 - name: 'Write a cron job to be run once a month for certificate renewal'
   cron:
@@ -24,4 +35,10 @@
     day: '{{ acme__tiny__cron_day }}'
     month: '{{ acme__tiny__cron_month }}'
     weekday: '{{ acme__tiny__cron_weekday }}'
+  vars:
+    acme__cert_name: '{{ item.domain[0]
+                        if (item.domain is iterable and
+                                not item.domain is string)
+                        else item.domain }}'
+  with_items: '{{ acme__domain }}'
 

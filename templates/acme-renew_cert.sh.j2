@@ -24,8 +24,8 @@ if [ ! -s "{{ acme__certificate }}" ] || [ "{{ acme__certificate }}" -ot "/tmp/l
     # ask for a newly signed cert
     acme_tiny --account-key {{ acme__account_key }} --csr {{ acme__request }} --acme-dir {{ acme__challenge_dir }} > {{ acme__certificate }} || exit 1
 
-    # install the cert as consumable for the respective services
-    cp "{{ acme__certificate }}" "{{ acme__cert_dir }}/{{ acme__cert_name }}.crt"
-    cat "{{ acme__certificate }}" {% for item in acme__letsencrypt_certs %}"{{ acme__config_dir }}/{{ item.file }}" {% endfor %} > "{{ acme__cert_dir }}/{{ acme__cert_name }}_chain.crt"
+    # install the certs as consumable for services (default mode)
+    cp "{{ acme__certificate }}" "{{ acme__target_cert }}"
+    cat "{{ acme__certificate }}" {% for item in acme__letsencrypt_certs %}"{{ acme__config_dir }}/{{ item.file }}" {% endfor %} > "{{ acme__target_chain }}"
 fi
 
