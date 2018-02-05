@@ -1,5 +1,6 @@
 [![Travis CI](https://img.shields.io/travis/inofix/ansible-acme-tiny-cron.svg?style=flat)](http://travis-ci.org/inofix/ansible-acme-tiny-cron)
 
+
 Role Name
 =========
 
