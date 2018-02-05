@@ -1,4 +1,4 @@
-[![Travis CI](https://img.shields.io/travis/inofix/ansible-acme-tiny-sign-cron.svg?style=flat)](http://travis-ci.org/inofix/ansible-acme-tiny-sign-cron)
+[![Travis CI](https://img.shields.io/travis/inofix/ansible-acme-tiny-cron.svg?style=flat)](http://travis-ci.org/inofix/ansible-acme-tiny-cron)
 
 Role Name
 =========
@@ -26,7 +26,7 @@ If radical changes should become necessary, a new role will be created, probably
 Installation
 ------------
 
- # ansible-galaxy install inofix.acme-tiny-sign-cron
+ # ansible-galaxy install inofix.acme-tiny-cron
 
 Requirements
 ------------
@@ -68,7 +68,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - inofix.acme-tiny-sign-cron
+         - inofix.acme-tiny-cron
 
 License
 -------
