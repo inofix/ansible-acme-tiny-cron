@@ -1,5 +1,5 @@
 ---
-# defaults file for acme-tiny-sign-cron/
+# defaults file for acme-tiny-cron/
 
 default__acme__user: 'acme'
 

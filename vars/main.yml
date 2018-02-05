@@ -1,5 +1,5 @@
 ---
-# vars file for acme-tiny-sign-cron
+# vars file for acme-tiny-cron
 
 acme__fqdn: '{{ fqdn | d(ansible_fqdn) | d(inventory_hostname) }}'
 acme__user: '{{ app__acme__user |
