@@ -16,6 +16,7 @@ touch -d "last month" /tmp/letsencrypt.tmp
 {% for item in acme__letsencrypt_certs %}
 if [ "{{ acme__config_dir }}/{{ item.file }}" -ot "/tmp/letsencrypt.tmp" ] ; then
     wget -O - {{ item.url }} > "{{ acme__config_dir }}/{{ item.file }}"
+    sed -i 's;\r$;;' "{{ acme__config_dir }}/{{ item.file }}"
 fi
 {% endfor %}
 
