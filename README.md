@@ -13,8 +13,7 @@ It takes over the work of inofix.acme-tiny-sign which must be run at least once 
 Status
 ------
 
-UNSTABLE! We are just migrating from zwischenloesung.acme-tiny-cron.
-
+preSTABLE (Feature-Freezy/RC)
 
 Promise
 -------
@@ -47,15 +46,15 @@ Role Variables
 * app\_\_acme\_\_tiny\_\_config\_dir - optional, default='/etc/ssl/acme-tiny'
 * app\_\_acme\_\_tiny\_\_account\_key - optional, auto
 * app\_\_acme\_\_tiny\_\_challenge\_dir - optional, default='/var/www/acme-challenge'
-* app\_\_acme\_\_tiny\_\_domain - optional, default='example.com'
-* app\_\_acme\_\_tiny\_\_cert\_name - optional, auto
-* app\_\_acme\_\_tiny\_\_cert\_dir - optional, auto
-* app\_\_acme\_\_tiny\_\_request - optional, auto
-* app\_\_acme\_\_tiny\_\_cron\_minute - optional, default='22,44'
-* app\_\_acme\_\_tiny\_\_cron\_hour - optional, default='04'
-* app\_\_acme\_\_tiny\_\_cron\_day - optional, default='\*'
-* app\_\_acme\_\_tiny\_\_cron\_month - optional, default='\*'
-* app\_\_acme\_\_tiny\_\_cron\_weekday - optional, default='\*'
+* app\_\_acme\_\_scripts\_dir - optional, default='/etc/ssl/acme/scripts'
+* app\_\_acme\_\_log\_dir - optional, default='/var/log/acme'
+* app\_\_acme\_\_domain - optional, default=[ {domain='example.com'} ]
+* app\_\_acme\_\_cron\_minute - optional, default='02,22,42'
+* app\_\_acme\_\_cron\_hour - optional, default='03,04'
+* app\_\_acme\_\_cron\_day - optional, default='\*'
+* app\_\_acme\_\_cron\_month - optional, default='\*'
+* app\_\_acme\_\_cron\_year - optional, default='\*'
+* app\_\_acme\_\_letsencrypt\_certs - optional, default=[ {url='https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem', file='intermediate.crt'}, {url='https://letsencrypt.org/certs/isrgrootx1.pem', file='ca.crt'} ]
 * fqdn - optional, default={{ ansible\_fqdn | d(inventory\_hostname ) }}
 
 Dependencies
