@@ -69,6 +69,9 @@ Example Playbook
       roles:
          - inofix.acme-tiny-cron
 
+(See inofix.acme-setup)
+
+
 License
 -------
 
