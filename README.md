@@ -1,7 +1,7 @@
 [![Travis CI](https://img.shields.io/travis/inofix/ansible-acme-tiny-cron.svg?style=flat)](http://travis-ci.org/inofix/ansible-acme-tiny-cron)
 
-Role Name
-=========
+Acme-Tiny Cron
+==============
 
 This is an ansible role for creating cron jobs for the recreation of your cerificates for a certain domain.
 
