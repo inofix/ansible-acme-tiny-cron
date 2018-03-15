@@ -25,7 +25,7 @@ If radical changes should become necessary, a new role will be created, probably
 Installation
 ------------
 
- # ansible-galaxy install inofix.acme-tiny-cron
+    # ansible-galaxy install inofix.acme-tiny-cron
 
 Requirements
 ------------
